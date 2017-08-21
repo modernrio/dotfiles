@@ -30,12 +30,12 @@ dotfiles:
   f_i3_config:
     dst: ~/.config/i3/config
     src: config/i3/config
-  f_i3blocks_desktop:
-    dst: ~/.config/i3/i3blocks.conf
-    src: config/i3/i3blocks.conf
   f_i3blocks_config:
     dst: ~/.config/i3blocks/config
     src: config/i3blocks/config
+  f_i3blocks_desktop:
+    dst: ~/.config/i3/i3blocks.conf
+    src: config/i3/i3blocks.conf
   f_nvimrc:
     dst: ~/.config/nvim/init.vim
     src: config/nvim/init.vim
