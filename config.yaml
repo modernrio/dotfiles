@@ -33,6 +33,12 @@ dotfiles:
   f_init.vim:
     dst: ~/.config/nvim/init.vim
     src: config/nvim/init.vim
+  f_rc.conf:
+    dst: ~/.config/ranger/rc.conf
+    src: config/ranger/rc.conf
+  f_scope.sh:
+    dst: ~/.config/ranger/scope.sh
+    src: config/ranger/scope.sh
   f_settings.ini:
     dst: ~/.config/gtk-3.0/settings.ini
     src: config/gtk-3.0/settings.ini
@@ -73,3 +79,5 @@ profiles:
   - f_i3_config
   - f_i3blocks_config
   - f_termite_config
+  - f_rc.conf
+  - f_scope.sh
