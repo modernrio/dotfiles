@@ -45,6 +45,9 @@ dotfiles:
   f_ranger_scope.sh:
     dst: ~/.config/ranger/scope.sh
     src: config/ranger/scope.sh
+  f_suspend@.service:
+    dst: /etc/systemd/system/suspend@.service
+    src: etc/systemd/system/suspend@.service
   f_termite_config:
     dst: ~/.config/termite/config
     src: config/termite/config
@@ -101,3 +104,4 @@ profiles:
   - f_termite_config
   - f_ranger_rc.conf
   - f_ranger_scope.sh
+  - f_suspend@.service
