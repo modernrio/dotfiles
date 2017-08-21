@@ -178,6 +178,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+{%@@ if profile == "think470" @@%}
 ## Fn keys
 # F1 (mute sound)
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
@@ -191,6 +192,21 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle
 bindsym XF86MonBrightnessDown exec --no-startup-id $HOME/bin/adjust_brightness.py -d 5
 # F6 (brightness up)
 bindsym XF86MonBrightnessUp exec --no-startup-id $HOME/bin/adjust_brightness.py -i 5
+{%@@ elif profile == "arch-desktop" @@%}
+# lock screen
+bindsym $mod+p exec i3lock --color "$bg-color"
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+{%@@ endif @@%}
 
 # Color variables
 {%@@ if profile == "think470" @@%}
