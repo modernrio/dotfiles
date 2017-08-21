@@ -1,0 +1,75 @@
+config:
+  backup: true
+  create: true
+  dotpath: src
+dotfiles:
+  f_adjust_brightness.py:
+    dst: ~/bin/adjust_brightness.py
+    src: bin/adjust_brightness.py
+  f_aliases:
+    dst: ~/.aliases
+    src: aliases
+  f_bashrc:
+    dst: ~/.bashrc
+    src: bashrc
+  f_batterystatus.py:
+    dst: ~/bin/batterystatus.py
+    src: bin/batterystatus.py
+  f_brightness.py:
+    dst: ~/bin/brightness.py
+    src: bin/brightness.py
+  f_gitconfig:
+    dst: ~/.gitconfig
+    src: gitconfig
+  f_gtkrc-2.0:
+    dst: ~/.gtkrc-2.0
+    src: gtkrc-2.0
+  f_i3_config:
+    dst: ~/.config/i3/config
+    src: config/i3/config
+  f_i3blocks_config:
+    dst: ~/.config/i3blocks/config
+    src: config/i3blocks/config
+  f_init.vim:
+    dst: ~/.config/nvim/init.vim
+    src: config/nvim/init.vim
+  f_settings.ini:
+    dst: ~/.config/gtk-3.0/settings.ini
+    src: config/gtk-3.0/settings.ini
+  f_termite_config:
+    dst: ~/.config/termite/config
+    src: config/termite/config
+  f_vimrc:
+    dst: ~/.vimrc
+    src: vimrc
+  f_xinitrc:
+    dst: ~/.xinitrc
+    src: xinitrc
+  f_xresources:
+    dst: ~/.Xresources
+    src: Xresources
+  f_zprofile:
+    dst: ~/.zprofile
+    src: zprofile
+  f_zshrc:
+    dst: ~/.zshrc
+    src: zshrc
+profiles:
+  think470:
+  - f_xinitrc
+  - f_init.vim
+  - f_vimrc
+  - f_xresources
+  - f_zshrc
+  - f_zprofile
+  - f_gtkrc-2.0
+  - f_gitconfig
+  - f_adjust_brightness.py
+  - f_batterystatus.py
+  - f_brightness.py
+  - f_bashrc
+  - f_aliases
+  - f_settings.ini
+  - f_i3_config
+  - f_i3blocks_config
+  - f_termite_config

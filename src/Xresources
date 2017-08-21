@@ -1,0 +1,18 @@
+! ------------------------------------------------------------------------------
+! rofi color theme + keybindings
+! ------------------------------------------------------------------------------
+{%@@ if profile == "think470" @@%}
+rofi.color-enabled:		true
+!						Odd Rows		Text		Even Rows		Active row		Active Text
+rofi.color-normal:		argb:cc273238,	#c1c1c1,	argb:cc273238,	argb:cc394249,	argb:ccffffff
+rofi.color-urgent:		argb:cc273238,	#ff1844,	argb:cc273238,	argb:cc394249,	argb:ccff1844
+rofi.color-active:		argb:cc273238,	#80cbc4,	argb:cc273238,	argb:cc394249,	argb:cc80cbc4
+!						Background	Border
+rofi.color-window:		argb:cc273238,	#273238,	#1e2529
+rofi.separator-style:   dash
+{%@@ endif @@%}
+
+rofi.kb-remove-to-eol:  
+rofi.kb-accept-entry:   Control+m,Return,KP_Enter
+rofi.kb-row-up:         Control+k,Up,Control+p,Shift+Tab,Shift+ISO_Left_Tab
+rofi.kb-row-down:       Control+j,Down,Control+n

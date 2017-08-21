@@ -1,0 +1,20 @@
+[user]
+	name = Markus Schneider 
+	email = markus@icet-clan.de
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	d = difftool
+[core]
+	editor = vim
+[color]
+	ui = true
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[pager]
+	diff =

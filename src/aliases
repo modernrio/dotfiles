@@ -1,0 +1,72 @@
+## Python
+alias py='python'
+alias py2='python2'
+alias py3='python3'
+
+## Fun
+alias aquarium='asciiquarium'
+alias starwars='telnet towel.blinkenlights.nl'
+alias mapscii='telnet mapscii.me'
+
+## Directories
+alias ls='ls --color=auto'
+alias ll='ls -l'
+alias la='ls -Ahsl'
+alias lA='ls -ahsl'
+alias l='ls -Clh'
+alias lP='l ~/Pictures'
+alias lD='l ~/Downloads'
+alias cd3='cd ~/.config/i3/'
+alias cdB='cd ~/bin'
+alias cdC='cd ~/ctfs'
+alias cD='cd ~/Downloads'
+alias cdD='cd ~/dotfiles'
+alias cdM='cd ~/Music/'
+alias cP='cd ~/Projects/'
+alias cdP='cd ~/Pictures'
+alias cS='cd ~/Schule'
+alias cdS='cd ~/.ssh'
+alias cdt='cd ~/.config/termite/'
+alias cdT='cd ~/.tmux'
+alias cdV='cd ~/.vim'
+
+## Reloading configs
+alias rB='source ~/.bashrc'
+alias rX='xrdb -merge ~/.Xresources'
+alias rZ='source ~/.zshrc'
+
+## Editing shortcuts
+alias e='$EDITOR'
+alias e3='$EDITOR ~/.config/i3/config'
+alias e3b='$EDITOR ~/.config/i3/i3blocks.conf'
+alias eA='$EDITOR ~/.aliases'
+alias eB='$EDITOR ~/.bashrc && rB'
+alias ec='crontab -e'
+alias eC='sudo crontab -e'
+alias eF='sudo $EDITOR /root/activate-firewall.sh && sudo bash /root/activate-firewall.sh'
+alias eG='$EDITOR ~/.gitconfig'
+alias eI='$EDITOR ~/.xinitrc'
+alias eM='$EDITOR ~/.muttrc'
+alias eO='$EDITOR ~/.offlineimaprc'
+alias eP='sudo $EDITOR /etc/pacman.conf'
+alias eS='$EDITOR ~/.ssh/config'
+alias et='$EDITOR ~/.config/termite/config'
+alias eT='$EDITOR ~/.tmux.conf'
+alias eV='$EDITOR ~/.vimrc'
+alias eX='$EDITOR ~/.Xresources && rX'
+alias eZ='$EDITOR ~/.zshrc'
+
+## Program shortcuts
+alias eclimd='$HOME/.eclipse/org.eclipse.platform_4.7.0_155965261_linux_gtk_x86_64/eclimd -b > /dev/null 2>&1 &!'
+alias g='git'
+alias m='mutt'
+alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\""
+alias t='task'
+alias vi='nvim'
+alias vim='nvim'
+alias bat0='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
+alias bat1='upower -i /org/freedesktop/UPower/devices/battery_BAT1'
+
+## Shell shortcuts
+alias k='exit'
+alias C='clear'
