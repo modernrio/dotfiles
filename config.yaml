@@ -30,16 +30,16 @@ dotfiles:
   f_i3blocks_config:
     dst: ~/.config/i3blocks/config
     src: config/i3blocks/config
-  f_init.vim:
+  f_nvimrc:
     dst: ~/.config/nvim/init.vim
     src: config/nvim/init.vim
-  f_rc.conf:
+  f_ranger_rc.conf:
     dst: ~/.config/ranger/rc.conf
     src: config/ranger/rc.conf
-  f_scope.sh:
+  f_ranger_scope.sh:
     dst: ~/.config/ranger/scope.sh
     src: config/ranger/scope.sh
-  f_settings.ini:
+  f_gtk3.0_config:
     dst: ~/.config/gtk-3.0/settings.ini
     src: config/gtk-3.0/settings.ini
   f_termite_config:
@@ -61,9 +61,26 @@ dotfiles:
     dst: ~/.zshrc
     src: zshrc
 profiles:
+  arch-desktop:
+  - f_xinitrc
+  - f_nvimrc
+  - f_vimrc
+  - f_xresources
+  - f_zshrc
+  - f_zprofile
+  - f_gtkrc-2.0
+  - f_gitconfig
+  - f_bashrc
+  - f_aliases
+  - f_gtk3.0_config
+  - f_i3_config
+  - f_i3blocks_config
+  - f_termite_config
+  - f_ranger_rc.conf
+  - f_ranger_scope.sh
   think470:
   - f_xinitrc
-  - f_init.vim
+  - f_nvimrc
   - f_vimrc
   - f_xresources
   - f_zshrc
@@ -75,9 +92,9 @@ profiles:
   - f_brightness.py
   - f_bashrc
   - f_aliases
-  - f_settings.ini
+  - f_gtk3.0_config
   - f_i3_config
   - f_i3blocks_config
   - f_termite_config
-  - f_rc.conf
-  - f_scope.sh
+  - f_ranger_rc.conf
+  - f_ranger_scope.sh

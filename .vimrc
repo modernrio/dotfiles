@@ -26,11 +26,6 @@ Plug 'tomtom/tlib_vim'
 
 " Plugins
 Plug 'flazz/vim-colorschemes'
-{%@@ if profile == "think470" @@%}
-Plug 'kjwon15/vim-transparent'
-{%@@ elif profile == "arch-desktop" @@%}
-Plug 'chriskempson/base16-vim'
-{%@@ endif @@%}
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'garbas/vim-snipmate'
@@ -92,20 +87,9 @@ set number
 " Autoindent on
 set autoindent
 
-{%@@ if profile == "arch-desktop" @@%}
-" Access colors present in 256 colorspace
-let base16colorspace=256
-{%@@ endif @@%}
-
 " Colorscheme
 syntax on
-
-{%@@ if profile == "think470" @@%}
 colorscheme wombat256
-{%@@ elif profile == "arch-desktop" @@%}
-colorscheme base16-chalk
-{%@@ endif @@%}
-
 set t_Co=256
 
 " Tab regulations

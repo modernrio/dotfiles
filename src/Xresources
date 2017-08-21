@@ -10,9 +10,18 @@ rofi.color-active:		argb:cc273238,	#80cbc4,	argb:cc273238,	argb:cc394249,	argb:c
 !						Background	Border
 rofi.color-window:		argb:cc273238,	#273238,	#1e2529
 rofi.separator-style:   dash
+{%@@ elif profile == "arch-desktop" @@%}
+rofi.color-enabled:		true
+!						Odd Rows	Text		Even Rows	Active row	Active Text
+rofi.color-normal:		#273238,	#c1c1c1,	#273238,	#394249,	#ffffff
+rofi.color-urgent:		#273238,	#ff1844,	#273238,	#394249,	#ff1844
+rofi.color-active:		#273238,	#80cbc4,	#273238,	#394249,	#80cbc4
+!						Background	Border
+rofi.color-window:		#273238,	#273238,	#1e2529
+rofi.separator-style:   dash
 {%@@ endif @@%}
 
-rofi.kb-remove-to-eol:  
+rofi.kb-remove-to-eol:
 rofi.kb-accept-entry:   Control+m,Return,KP_Enter
 rofi.kb-row-up:         Control+k,Up,Control+p,Shift+Tab,Shift+ISO_Left_Tab
 rofi.kb-row-down:       Control+j,Down,Control+n

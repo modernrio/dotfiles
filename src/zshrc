@@ -28,10 +28,11 @@ export PATH="$PATH:$HOME/bin"
 #------------------------------------------------------------------------------#
 #                        Theme options (before loading)                        #
 #------------------------------------------------------------------------------#
+{%@@ if profile == "think470" @@%}
 GEOMETRY_SYMBOL_PROMPT="λ"                  # default prompt symbol
 GEOMETRY_SYMBOL_RPROMPT="λ"					# multiline prompts
 GEOMETRY_SYMBOL_EXIT_VALUE="λ"              # displayed when exit value is != 0
-GEOMETRY_SYMBOL_ROOT="▲"                  # when logged in user is root
+GEOMETRY_SYMBOL_ROOT="▲"                  	# when logged in user is root
 
 GEOMETRY_COLOR_EXIT_VALUE="red"				# prompt symbol color when exit value is != 0
 GEOMETRY_COLOR_PROMPT="white"               # prompt symbol color
@@ -41,6 +42,18 @@ GEOMETRY_COLOR_DIR="blue"                   # current directory color
 GEOMETRY_PROMPT_SUFFIX=""                   # suffix prompt
 GEOMETRY_PLUGIN_SEPARATOR=" "               # use ' ' to separate right prompt parts
 GEOMETRY_GREP="grep"						# define which grep-like tool to use
+{%@@ elif profile == "arch-desktop" @@%}
+# Customize powerlevel9k
+POWERLEVEL9k_MODE='awesome-patched'
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vi_mode time)
+POWERLEVEL9K_VCS_GIT_ICON=''
+POWERLEVEL9K_VCS_STAGED_ICON='\u00b1'
+POWERLEVEL9K_VCS_UNTRACKED_ICON=''
+POWERLEVEL9K_VCS_UNSTAGED_ICON=''
+POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON='\u2193'
+POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\u2191'
+{%@@ endif @@%}
 
 #------------------------------------------------------------------------------#
 #                              Plugin Management                               #
@@ -67,7 +80,11 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-autosuggestions"
 
 # Load theme file
+{%@@ if profile == "think470" @@%}
 zplug "geometry-zsh/geometry", as:theme
+{%@@ elif profile == "arch-desktop" @@%}
+zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+{%@@ endif @@%}
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -129,6 +146,14 @@ compinit
 
 # Source aliases
 source $HOME/.aliases
+
+{%@@ if profile == "arch-desktop" @@%}
+# Source Xilinx ISE
+export PATH=/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64:$PATH
+
+# Add ruby binaries to PATH
+export PATH=~/.gem/ruby/2.4.0/bin:$PATH
+{%@@ endif @@%}
 
 #------------------------------------------------------------------------------#
 #                             Enviroment variables                             #

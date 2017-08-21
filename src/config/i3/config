@@ -21,8 +21,14 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec rofi -show run -lines 5 -eh 2 -width 50 -terminal termite
 
 # Disable titlebar and add small border
+{%@@ if profile == "think470" @@%}
 for_window [class="^.*"] border pixel 1
+{%@@ elif profile == "arch-desktop" @@%}
+new_window pixel
+for_window [class="\w*"] border pixel 3
+{%@@ endif @@%}
 
+{%@@ if profile == "think470" @@%}
 # Setup gaps
 smart_gaps on
 gaps inner 10
@@ -30,6 +36,7 @@ gaps outer 0
 
 # Borders only on active window
 smart_borders on
+{%@@ endif @@%}
 
 # Some programs should always be floating
 for_window [class="Pinentry"] floating enable
@@ -85,36 +92,61 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# Set workspace names
+{%@@ if profile == "think470" @@%}
+set $workspace1 "1"
+set $workspace2 "2"
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace5 "5"
+set $workspace6 "6"
+set $workspace7 "7"
+set $workspace8 "8"
+set $workspace9 "9"
+set $workspace10 "10"
+{%@@ elif profile == "arch-desktop" @@%}
+set $workspace1 "1: "
+set $workspace2 "2: "
+set $workspace3 "3: "
+set $workspace4 "4: "
+set $workspace5 "5: "
+set $workspace6 "6: "
+set $workspace7 "7: "
+set $workspace8 "8: "
+set $workspace9 "9: "
+set $workspace10 "10: "
+{%@@ endif @@%}
+
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-msg exit"
+bindsym $mod+Shift+e exec i3-msg exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -156,7 +188,23 @@ bindsym XF86MonBrightnessDown exec --no-startup-id $HOME/bin/adjust_brightness.p
 # F6 (brightness up)
 bindsym XF86MonBrightnessUp exec --no-startup-id $HOME/bin/adjust_brightness.py -i 5
 
+# Color variables
+{%@@ if profile == "think470" @@%}
+set $bg-color				#1ea2dd
+set $inactive-bg-color		#0f0f0f
+set $text-color				#f3f4f5
+set $inactive-text-color	#676E7D
+set $urgent-bgcolor			#d41235
+{%@@ elif profile == "arch-desktop" @@%}
+set $bg-color				#1ea2dd
+set $inactive-bg-color		#2f343f
+set $text-color				#f3f4f5
+set $inactive-text-color	#676E7D
+set $urgent-bgcolor			#E53935
+{%@@ endif @@%}
+
 # Window decorations colors
+{%@@ if profile == "think470" @@%}
 # class                 border  backgr. text    indicator child_border
 client.focused          #d41235 #285577 #ffffff #d41235   #d41235
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
@@ -164,19 +212,29 @@ client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
+{%@@ elif profile == "arch-desktop" @@%}
+# 						border				background			text					indicator
+client.focused			$bg-color			$bg-color			$text-color				#00ff00
+client.unfocused		$inactive-bg-color	$inactive-bg-color	$inactive-text-color	#00ff00
+client.focused_inactive	$inactive-bg-color	$inactive-bg-color	$inactive-text-color	#00ff00
+client.urgent			$urgent-bg-color	$urgent-bg-color	$text-text-color		#00ff00
+{%@@ endif @@%}
 
-# Color variables
-set $bg-color				#1ea2dd
-set $inactive-bg-color		#0f0f0f
-set $text-color				#f3f4f5
-set $inactive-text-color	#676E7D
-set $urgent-bgcolor			#d41235
+{%@@ if profile == "arch-desktop" @@%}
+# Hide borders
+hide_edge_borders both
+{%@@ endif @@%}
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
 		position top
+{%@@ if profile == "think470" @@%}
         status_command i3blocks
+{%@@ elif profile == "arch-desktop" @@%}
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+{%@@ endif @@%}
 		colors {
 			background $inactive-bg-color
 			separator #757575
