@@ -24,6 +24,9 @@ setxkbmap -option caps:escape
 {%@@ if profile == "think470" @@%}
 # Start compton in background
 compton -b
+
+# Setup xautolock
+xautolock -time 5 -locker "i3lock-fancy -p -- scrot -z" &
 {%@@ endif @@%}
 
 # Start caffeine (systray) in background
