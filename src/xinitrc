@@ -5,6 +5,13 @@
 # Disable mouse acceleration
 xset m 0 0
 
+{%@@ if profile == "arch-desktop" @@%}
+# Set screen resolutions
+setres --port HDMI-1 1920 1080
+setres --port DVI-I-1 1280 1024
+bash ~/.screenlayout/screen.sh
+{%@@ endif @@%}
+
 # Set wallpaper
 feh --bg-scale $HOME/Pictures/wallpaper
 
