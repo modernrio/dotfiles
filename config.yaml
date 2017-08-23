@@ -36,9 +36,15 @@ dotfiles:
   f_i3blocks_desktop:
     dst: ~/.config/i3/i3blocks.conf
     src: config/i3/i3blocks.conf
+  f_keys.conf:
+    dst: ~/.config/qutebrowser/keys.conf
+    src: config/qutebrowser/keys.conf
   f_nvimrc:
     dst: ~/.config/nvim/init.vim
     src: config/nvim/init.vim
+  f_qutebrowser.conf:
+    dst: ~/.config/qutebrowser/qutebrowser.conf
+    src: config/qutebrowser/qutebrowser.conf
   f_ranger_rc.conf:
     dst: ~/.config/ranger/rc.conf
     src: config/ranger/rc.conf
@@ -105,3 +111,5 @@ profiles:
   - f_ranger_rc.conf
   - f_ranger_scope.sh
   - f_suspend@.service
+  - f_qutebrowser.conf
+  - f_keys.conf
