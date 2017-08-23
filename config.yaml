@@ -39,6 +39,9 @@ dotfiles:
   f_keys.conf:
     dst: ~/.config/qutebrowser/keys.conf
     src: config/qutebrowser/keys.conf
+  f_makepkg.conf:
+    dst: /etc/makepkg.conf
+    src: etc/makepkg.conf
   f_nvimrc:
     dst: ~/.config/nvim/init.vim
     src: config/nvim/init.vim
@@ -113,3 +116,4 @@ profiles:
   - f_suspend@.service
   - f_qutebrowser.conf
   - f_keys.conf
+  - f_makepkg.conf

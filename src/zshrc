@@ -22,8 +22,8 @@ else
 	export EDITOR="nvim"
 fi
 
-# Add $HOME/bin to PATH
-export PATH="$PATH:$HOME/bin"
+# Add ccache and $HOME/bin to PATH
+export PATH="/usr/lib/ccache/bin/:$PATH:$HOME/bin"
 
 #------------------------------------------------------------------------------#
 #                        Theme options (before loading)                        #
