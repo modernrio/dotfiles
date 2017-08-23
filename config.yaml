@@ -45,6 +45,9 @@ dotfiles:
   f_nvimrc:
     dst: ~/.config/nvim/init.vim
     src: config/nvim/init.vim
+  f_pacman.conf:
+    dst: /etc/pacman.conf
+    src: etc/pacman.conf
   f_qutebrowser.conf:
     dst: ~/.config/qutebrowser/qutebrowser.conf
     src: config/qutebrowser/qutebrowser.conf
@@ -117,3 +120,4 @@ profiles:
   - f_qutebrowser.conf
   - f_keys.conf
   - f_makepkg.conf
+  - f_pacman.conf
