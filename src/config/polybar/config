@@ -1,0 +1,264 @@
+[colors]
+white = #f3f4f5
+gray = #585858
+black = #cc0f0f0f
+red = #d41235
+blue = #95aec7
+yellow = #c7ae95
+green = #aec795
+
+fg = ${self.white}
+bg = ${self.black}
+
+[bar/top]
+width = 100%
+height = 25
+offset-x = 0
+offset-y = 0
+fixed-center = true
+
+background = ${colors.bg}
+foreground = ${colors.fg}
+
+line-size = 1
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 2
+
+font-0 = fixed:pixelsize=10.5;4
+font-1 = FontAwesome:size=10.5;4
+font-2 = siji:pixelsize=10.5;4
+
+modules-left = i3
+modules-center = xwindow
+modules-right = pavolume memory brightness wlan eth external_battery internal_battery date
+
+tray-position = right
+tray-padding = 2
+;tray-transparent = true
+;tray-background = #0063ff
+
+;wm-restack = bspwm
+; wm-restack = i3
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:50:...%
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+
+label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_free%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.fg}
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+ws-icon-0 = 1;www
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.black}
+
+; focused = Active workspace on focused monitor
+label-focused = %index%
+label-focused-background = ${colors.black}
+label-focused-underline = ${colors.red}
+label-focused-padding = 2
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = 2
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${colors.black}
+label-visible-underline = ${colors.red}
+label-visible-padding = 2
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${colors.yellow}
+label-urgent-padding = 2
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.black}
+format-underline = ${colors.red}
+label = " %gb_used%/%gb_free% "
+
+[module/wlan]
+type = internal/network
+interface = wlp4s0
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-underline = ${colors.red}
+label-connected = " %essid% "
+
+format-disconnected = 
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.fg}
+
+[module/eth]
+type = internal/network
+interface = enp0s31f6
+interval = 3.0
+
+format-connected-underline = ${colors.red}
+format-connected-prefix = " ETH "
+format-connected-prefix-for eground = ${colors.fg}
+label-connected = "%linkspeed% "
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+interval = 0.5
+
+date = "%Y-%m-%d"
+date-alt = ""
+
+time = "%H:%M:%S "
+time-alt = "%H:%M "
+
+format-prefix = "  "
+format-prefix-foreground = ${colors.fg}
+format-underline = ${colors.red}
+
+label = %date% %time%
+
+[module/pavolume]
+type = custom/script
+interval = 1.0
+
+label = %output%
+exec = ~/.config/polybar/pavolume.sh
+
+format-underline = ${colors.red}
+
+click-right = exec pavucontrol
+click-left = ~/.config/polybar/pavolume.sh --togmute
+
+scroll-up = ~/.config/polybar/pavolume.sh --up
+scroll-down = ~/.config/polybar/pavolume.sh --down
+
+[module/brightness]
+type = custom/script
+interval = 1.0
+
+label =  %output%
+exec = brightnessctl -m | sed 's/,/\n/g' | awk 'NR==4'
+
+format-underline = ${colors.red}
+
+[module/external_battery]
+type = internal/battery
+battery = BAT1
+adapter = AC
+full-at = 95
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = ${colors.red}
+label-charging = " %percentage%% "
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+label-discharging = "%percentage%% "
+
+format-full-prefix = "  "
+format-full-prefix-foreground = ${colors.green}
+format-full-underline = ${self.format-charging-underline}
+label-full = "%percentage%% "
+
+ramp-capacity-0 = "  "
+ramp-capacity-1 = "  "
+ramp-capacity-2 = "  "
+ramp-capacity-3 = "  "
+ramp-capacity-4 = "  "
+ramp-capacity-foreground = ${colors.fg}
+
+animation-charging-0 = "  "
+animation-charging-1 = "  "
+animation-charging-2 = "  "
+animation-charging-3 = "  "
+animation-charging-4 = "  "
+animation-charging-foreground = ${colors.fg}
+animation-charging-framerate = 750
+
+[module/internal_battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 95
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = ${colors.red}
+label-charging = " %percentage%% "
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+label-discharging = "%percentage%% "
+
+format-full-prefix = "  "
+format-full-prefix-foreground = ${colors.green}
+format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = "  "
+ramp-capacity-1 = "  "
+ramp-capacity-2 = "  "
+ramp-capacity-3 = "  "
+ramp-capacity-4 = "  "
+ramp-capacity-foreground = ${colors.fg}
+
+animation-charging-0 = "  "
+animation-charging-1 = "  "
+animation-charging-2 = "  "
+animation-charging-3 = "  "
+animation-charging-4 = "  "
+animation-charging-foreground = ${colors.fg}
+animation-charging-framerate = 750
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini

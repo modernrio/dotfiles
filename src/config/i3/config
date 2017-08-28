@@ -195,6 +195,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle
 bindsym XF86MonBrightnessDown exec --no-startup-id $HOME/bin/adjust_brightness.py -d 5
 # F6 (brightness up)
 bindsym XF86MonBrightnessUp exec --no-startup-id $HOME/bin/adjust_brightness.py -i 5
+
+# Print Screen key for taking screenshots
+bindsym --release Print exec --no-startup-id scrot -sz
 {%@@ elif profile == "arch-desktop" @@%}
 # lock screen
 bindsym $mod+p exec --no-startup-id i3lock --color "$bg-color"
@@ -210,15 +213,8 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 {%@@ endif @@%}
-
+{%@@ if profile == "arch-desktop" @@%}
 # Color variables
-{%@@ if profile == "think470" @@%}
-set $bg-color				#1ea2dd
-set $inactive-bg-color		#0f0f0f
-set $text-color				#f3f4f5
-set $inactive-text-color	#676E7D
-set $urgent-bgcolor			#d41235
-{%@@ elif profile == "arch-desktop" @@%}
 set $bg-color				#1ea2dd
 set $inactive-bg-color		#2f343f
 set $text-color				#f3f4f5
@@ -247,17 +243,16 @@ client.urgent			$urgent-bg-color	$urgent-bg-color	$text-text-color		#00ff00
 # Hide borders
 hide_edge_borders both
 {%@@ endif @@%}
-
-
+{%@@ if profile == "think470" @@%}
+# Start polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+{%@@ endif @@%}
+{%@@ if profile == "arch-desktop" @@%}
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
 		position top
-{%@@ if profile == "think470" @@%}
-        status_command i3blocks
-{%@@ elif profile == "arch-desktop" @@%}
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
-{%@@ endif @@%}
 		colors {
 			background $inactive-bg-color
 			separator #757575
@@ -267,3 +262,4 @@ bar {
 			urgent_workspace	$urgent-bg-color	$urgent-bg-color	$text-color
 		}
 }
+{%@@ endif @@%}

@@ -12,12 +12,6 @@ dotfiles:
   f_bashrc:
     dst: ~/.bashrc
     src: bashrc
-  f_batterystatus.py:
-    dst: ~/bin/batterystatus.py
-    src: bin/batterystatus.py
-  f_brightness.py:
-    dst: ~/bin/brightness.py
-    src: bin/brightness.py
   f_gitconfig:
     dst: ~/.gitconfig
     src: gitconfig
@@ -30,15 +24,15 @@ dotfiles:
   f_i3_config:
     dst: ~/.config/i3/config
     src: config/i3/config
-  f_i3blocks_config:
-    dst: ~/.config/i3blocks/config
-    src: config/i3blocks/config
   f_i3blocks_desktop:
     dst: ~/.config/i3/i3blocks.conf
     src: config/i3/i3blocks.conf
   f_keys.conf:
     dst: ~/.config/qutebrowser/keys.conf
     src: config/qutebrowser/keys.conf
+  f_launch.sh:
+    dst: ~/.config/polybar/launch.sh
+    src: config/polybar/launch.sh
   f_makepkg.conf:
     dst: /etc/makepkg.conf
     src: etc/makepkg.conf
@@ -48,6 +42,12 @@ dotfiles:
   f_pacman.conf:
     dst: /etc/pacman.conf
     src: etc/pacman.conf
+  f_pavolume.sh:
+    dst: ~/.config/polybar/pavolume.sh
+    src: config/polybar/pavolume.sh
+  f_polybar_config:
+    dst: ~/.config/polybar/config
+    src: config/polybar/config
   f_qutebrowser.conf:
     dst: ~/.config/qutebrowser/qutebrowser.conf
     src: config/qutebrowser/qutebrowser.conf
@@ -106,13 +106,10 @@ profiles:
   - f_gtkrc-2.0
   - f_gitconfig
   - f_adjust_brightness.py
-  - f_batterystatus.py
-  - f_brightness.py
   - f_bashrc
   - f_aliases
   - f_gtk3.0_config
   - f_i3_config
-  - f_i3blocks_config
   - f_termite_config
   - f_ranger_rc.conf
   - f_ranger_scope.sh
@@ -121,3 +118,6 @@ profiles:
   - f_keys.conf
   - f_makepkg.conf
   - f_pacman.conf
+  - f_polybar_config
+  - f_launch.sh
+  - f_pavolume.sh
