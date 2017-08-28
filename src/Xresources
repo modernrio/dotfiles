@@ -2,13 +2,20 @@
 ! rofi color theme + keybindings
 ! ------------------------------------------------------------------------------
 {%@@ if profile == "think470" @@%}
+! Enable colors
 rofi.color-enabled:		true
-!						Odd Rows		Text		Even Rows		Active row		Active Text
-rofi.color-normal:		argb:cc273238,	#c1c1c1,	argb:cc273238,	argb:cc394249,	argb:ccffffff
-rofi.color-urgent:		argb:cc273238,	#ff1844,	argb:cc273238,	argb:cc394249,	argb:ccff1844
-rofi.color-active:		argb:cc273238,	#80cbc4,	argb:cc273238,	argb:cc394249,	argb:cc80cbc4
-!						Background	Border
-rofi.color-window:		argb:cc273238,	#273238,	#1e2529
+
+! Colorscheme
+!					Odd Rows		Text		Even Rows		Active row		Active Text
+! Normal rows
+rofi.color-normal:	argb:c83c4a,	#c4cbd4,	argb:96404552,	#d41235,		#f9f9f9
+! Urgent row
+rofi.color-urgent:  argb:ccd303b,	#cc6666,	argb:e52d303b,	#a54242,		#f9f9f9
+! Active row
+rofi.color-active:	argb:ccd303b,	#b5bd68,	argb:e42d303b,	#d41235,		#f9f9f9
+! Window
+rofi.color-window:  argb:cc2d303b,	#7c8389,	#1d1f21
+! Separator style (none, dash, solid)
 rofi.separator-style:   dash
 {%@@ elif profile == "arch-desktop" @@%}
 rofi.color-enabled:		true
@@ -21,7 +28,7 @@ rofi.color-window:		#273238,	#273238,	#1e2529
 rofi.separator-style:   dash
 {%@@ endif @@%}
 
-rofi.kb-remove-to-eol:
 rofi.kb-accept-entry:   Control+m,Return,KP_Enter
 rofi.kb-row-up:         Control+k,Up,Control+p,Shift+Tab,Shift+ISO_Left_Tab
 rofi.kb-row-down:       Control+j,Down,Control+n
+rofi.kb-remove-to-eol:
