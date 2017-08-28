@@ -3,7 +3,11 @@
 #------------------------------------------------------------------------------#
 # Default programs
 export PAGER="less"
+{%@@ if profile == "think470" @@%}
+export BROWSER="qutebrowser"
+{%@@ elif profile == "arch-desktop" @@%}
 export BROWSER="firefox"
+{%@@ endif @@%}
 export MAIL="mutt"
 export MOVPLAY="mpv"
 export PICVIEW="feh"
