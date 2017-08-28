@@ -14,9 +14,10 @@ set -o vi
 # Set keyboard map to german layout
 setxkbmap de,de
 
+{%@@ if profile == "arch-desktop" @@%}
 # Activate numlock
 numlockx on
-
+{%@@ endif @@%}
 # Suppress python byte code
 export PYTHONDONTWRITEBYTECODE="true"
 
