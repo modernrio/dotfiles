@@ -63,6 +63,9 @@ dotfiles:
   f_termite_config:
     dst: ~/.config/termite/config
     src: config/termite/config
+  f_tmux.conf:
+    dst: ~/.tmux.conf
+    src: tmux.conf
   f_vimrc:
     dst: ~/.vimrc
     src: vimrc
@@ -121,3 +124,4 @@ profiles:
   - f_polybar_config
   - f_launch.sh
   - f_pavolume.sh
+  - f_tmux.conf
