@@ -36,6 +36,12 @@ dotfiles:
   f_makepkg.conf:
     dst: /etc/makepkg.conf
     src: etc/makepkg.conf
+  f_mpd.conf:
+    dst: ~/.config/mpd/mpd.conf
+    src: config/mpd/mpd.conf
+  f_ncmpcpp_config:
+    dst: ~/.ncmpcpp/config
+    src: ncmpcpp/config
   f_nvimrc:
     dst: ~/.config/nvim/init.vim
     src: config/nvim/init.vim
@@ -125,3 +131,5 @@ profiles:
   - f_launch.sh
   - f_pavolume.sh
   - f_tmux.conf
+  - f_ncmpcpp_config
+  - f_mpd.conf
