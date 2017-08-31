@@ -8,14 +8,17 @@ alias aquarium='asciiquarium'
 alias starwars='telnet towel.blinkenlights.nl'
 alias mapscii='telnet mapscii.me'
 
-## Directories
+## Productivity
 alias ls='ls --color=auto'
 alias ll='ls -l'
-alias la='ls -Ahsl'
-alias lA='ls -ahsl'
+alias la='exa -abgl --git --color=automatic'
+alias lA='ls -Ahsl'
 alias l='ls -Clh'
 alias lP='l ~/Pictures'
 alias lD='l ~/Downloads'
+alias c='pygmentize'
+
+## Directories
 alias cd3='cd ~/.config/i3/'
 alias cdB='cd ~/bin'
 alias cdC='cd ~/ctfs'
