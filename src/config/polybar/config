@@ -35,9 +35,9 @@ font-0 = fixed:pixelsize=10.5;4
 font-1 = FontAwesome:size=10.5;4
 font-2 = siji:pixelsize=10.5;4
 
-modules-left = i3
+modules-left = i3 mpd
 modules-center = xwindow
-modules-right = pavolume memory brightness wlan eth external_battery internal_battery date
+modules-right = pavolume memory brightness wlan eth vpncheck external_battery internal_battery date
 
 tray-position = right
 tray-padding = 2
@@ -249,6 +249,84 @@ animation-charging-3 = "  "
 animation-charging-4 = "  "
 animation-charging-foreground = ${colors.fg}
 animation-charging-framerate = 750
+
+[module/vpncheck]
+type = custom/script
+exec = pgrep openvpn
+interval = 5
+label = VPN
+format-underline = ${colors.red}
+format-prefix = " "
+format-prefix-foreground = ${colors.white}
+
+[module/mpd]
+type = internal/mpd
+
+host = 127.0.0.1
+port = 6600
+password =
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+interval = 0.5
+; Available tags:
+;   <label-song> (default)
+;   <label-time>
+;   <bar-progress>
+;   <toggle> - gets replaced with <icon-(pause|play)>
+;   <toggle-stop> - gets replaced with <icon-(stop|play)>
+;   <icon-random>
+;   <icon-repeat>
+;   <icon-repeatone>
+;   <icon-prev>
+;   <icon-stop>
+;   <icon-play>
+;   <icon-pause>
+;   <icon-next>
+;   <icon-seekb>
+;   <icon-seekf>
+format-online = <icon-pause> <icon-play> <label-time> <label-song>
+;format-playing = ${self.format-online}
+;format-paused = ${self.format-online}
+;format-stopped = ${self.format-online}
+
+; Available tags:
+;   <label-offline>
+;format-offline = <label-offline>
+
+; Available tokens:
+;   %artist%
+;   %album%
+;   %date%
+;   %title%
+; Default: %artist% - %title%
+label-song = 𝄞 %artist% - %title%
+
+; Available tokens:
+;   %elapsed%
+;   %total%
+; Default: %elapsed% / %total%
+;label-time = %elapsed% / %total%
+
+; Available tokens:
+;   None
+label-offline = 🎜 mpd is offline
+
+; Only applies if <icon-X> is used
+icon-prev  = 
+icon-seekb = 
+icon-stop  = 
+icon-pause = 
+icon-play  = 
+icon-next  = 
+icon-seekf = 
+icon-random = 
+icon-repeat = 
+
+; Used to display the state of random/repeat/repeatone
+; Only applies if <icon-[random|repeat|repeatone]> is used
+toggle-on-foreground = #ff
+toggle-off-foreground = #55
 
 [settings]
 screenchange-reload = true
