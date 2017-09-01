@@ -3,6 +3,9 @@ config:
   create: true
   dotpath: src
 dotfiles:
+  d_colors:
+    dst: ~/.vim/colors
+    src: vim/colors
   f_adjust_brightness.py:
     dst: ~/bin/adjust_brightness.py
     src: bin/adjust_brightness.py
@@ -133,3 +136,4 @@ profiles:
   - f_tmux.conf
   - f_ncmpcpp_config
   - f_mpd.conf
+  - d_colors

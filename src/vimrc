@@ -101,7 +101,7 @@ let base16colorspace=256
 syntax on
 
 {%@@ if profile == "think470" @@%}
-colorscheme wombat256
+colorscheme wombat256diff
 {%@@ elif profile == "arch-desktop" @@%}
 colorscheme base16-chalk
 {%@@ endif @@%}
