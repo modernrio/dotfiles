@@ -91,7 +91,6 @@ set number
 
 " Autoindent on
 set autoindent
-
 {%@@ if profile == "arch-desktop" @@%}
 " Access colors present in 256 colorspace
 let base16colorspace=256
@@ -99,13 +98,11 @@ let base16colorspace=256
 
 " Colorscheme
 syntax on
-
 {%@@ if profile == "think470" @@%}
 colorscheme wombat256diff
 {%@@ elif profile == "arch-desktop" @@%}
 colorscheme base16-chalk
 {%@@ endif @@%}
-
 set t_Co=256
 
 " Tab regulations
@@ -125,6 +122,9 @@ au BufRead *.h set tw=100
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
+
+" Guides
+inoremap <Space><Space> <Esc>/<++><Enter>"_4s
 
 " Run neomake on every write
 autocmd! BufWritePost * Neomake
@@ -158,7 +158,8 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " eclim settings
 let g:EclimCompletionMethod = 'omnifunc'
-nmap <Leader>j :JavaCorrect<CR>
+nmap <Leader>jc :JavaCorrect<CR>
+nmap <Leader>jj :Java<CR>
 
 " neomake settings
 let g:neomake_cpp_enabled_makers=['gcc'] " gcc will be translated to g++ by neomake
@@ -176,8 +177,8 @@ function! ViewMD2PDF()
 	:execute 'silent !zathura /tmp/vim-pandoc-out.pdf &'
 endfunction
 
-nmap <Leader>pp :call CompileMD2PDF()<CR>
-nmap <Leader>pv :call ViewMD2PDF()<CR>
+autocmd FileType markdown nmap <Leader>pp :call CompileMD2PDF()<CR>
+autocmd FileType markdown nmap <Leader>pv :call ViewMD2PDF()<CR>
 " Automatically compile markdown files on write
 " TODO: Detect filetype markdown instead of relying on file ending with .md
 autocmd BufWritePost *.md :silent call CompileMD2PDF()
