@@ -65,7 +65,7 @@ alias eX='$EDITOR ~/.Xresources && rX'
 alias eZ='$EDITOR ~/.zshrc'
 
 ## Program shortcuts
-alias eclimd='$HOME/.eclipse/org.eclipse.platform_4.7.0_155965261_linux_gtk_x86_64/eclimd -b > /dev/null 2>&1 &!'
+alias eclimd='/usr/lib/eclipse/eclimd -b > /dev/null 2>&1'
 alias g='git'
 alias m='mutt'
 alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\""
