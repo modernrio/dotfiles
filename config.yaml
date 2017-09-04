@@ -84,6 +84,9 @@ dotfiles:
   f_xresources:
     dst: ~/.Xresources
     src: Xresources
+  f_ycm_extra_conf.py:
+    dst: ~/.vim/.ycm_extra_conf.py
+    src: vim/.ycm_extra_conf.py
   f_zprofile:
     dst: ~/.zprofile
     src: zprofile
@@ -137,3 +140,4 @@ profiles:
   - f_ncmpcpp_config
   - f_mpd.conf
   - d_colors
+  - f_ycm_extra_conf.py
