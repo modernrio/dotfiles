@@ -30,6 +30,9 @@ dotfiles:
   f_i3blocks_desktop:
     dst: ~/.config/i3/i3blocks.conf
     src: config/i3/i3blocks.conf
+  f_init.el:
+    dst: ~/.emacs.d/init.el
+    src: emacs.d/init.el
   f_keys.conf:
     dst: ~/.config/qutebrowser/keys.conf
     src: config/qutebrowser/keys.conf
@@ -111,6 +114,7 @@ profiles:
   - f_termite_config
   - f_ranger_rc.conf
   - f_ranger_scope.sh
+  - f_init.el
   think470:
   - f_xinitrc
   - f_nvimrc
