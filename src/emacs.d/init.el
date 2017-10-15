@@ -69,7 +69,34 @@
 
 ;; Add TODO keywords
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "NEXT(n)" "STARTED(s)" "WAITING(w)" "|" "DONE(d)" "CANCELED(c)")))
+      '((sequence "TODO(t@/!)" "NEXT(n/!)" "STARTED(s)" "WAITING(w@/!)" "SOMEDAY(s/!)" "PROJ(p)" "|" "DONE(d)" "CANCELED(c)")))
+
+;: Make customize *never* save options
+(setq custom-file "/dev/null")
+
+;; Refile to all agenda files
+(setq org-refile-targets '(
+   (nil :maxlevel . 2)             ; refile to headings in the current buffer
+   (org-agenda-files :maxlevel . 2) ; refile to any of these files
+   ))
+
+;; Use file path when refiling
+(setq org-refile-use-out-line-path (quote file))
+
+;; Prompt for confirmation if new parent node is refiled
+(setq org-refile-allow-creating-parent-nodes (quote confirm))
+
+;; Define capture key
+(global-set-key (kbd "\C-cr") 'org-capture)
+
+;; Org Capture (TODO)
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/org/personal.org" "Aufgaben")
+         "* TODO %?\n %i\n")))
+
+;; Include TODO entries and avoid duplicates when exporting to iCal
+(setq org-icalendar-include-todo t
+      org-icalendar-store-UID t)
 
 ;; Load org-babel languages
 (custom-set-variables
@@ -77,14 +104,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-files
-   (quote
-    ("/home/whoami/tud/ws17.org" "/home/whoami/tud/vorkurs/vorkurs.org" "/home/whoami/tud/tud.org" "/home/whoami/tud/module/mathe1/mathe1.org" "/home/whoami/org/personal.org")))
  '(org-babel-load-languages (quote ((C . t) (java . t))))
- '(org-confirm-babel-evaluate nil)
- '(package-selected-packages
-   (quote
-    (general which-key evil-search-highlight-persist evil-org spaceline magit smex ido-complete-space-or-hypen ido-ubiquitous use-package org-bullets org nlinum-relative multi-term grep-a-lot evil doom-themes))))
+ '(org-confirm-babel-evaluate nil))
 
 ;; Enable entities and syntax highlight source code blocks.
 ;; Also do fontify stuff do make the theme look better
