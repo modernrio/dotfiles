@@ -23,14 +23,18 @@ call plug#begin()
 " (vim-snipmate)
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim' 
+" (vim-orgmode)
+Plug 'vim-scripts/utl.vim'
+" Plug 'vim-scripts/taglist.vim'
+" Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-speeddating'
+Plug 'chrisbra/NrrwRgn'
+Plug 'mattn/calendar-vim'
+Plug 'vim-scripts/SyntaxRange'
 
 " Plugins
 Plug 'flazz/vim-colorschemes'
-{%@@ if profile == "think470" @@%}
-Plug 'kjwon15/vim-transparent'
-{%@@ elif profile == "arch-desktop" @@%}
 Plug 'chriskempson/base16-vim'
-{%@@ endif @@%}
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'garbas/vim-snipmate'
@@ -43,6 +47,7 @@ Plug 'neomake/neomake'
 Plug 'tpope/vim-fugitive'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --all' }
 Plug 'lervag/vimtex'
+Plug 'jceb/vim-orgmode'
 
 call plug#end()
 
@@ -51,6 +56,7 @@ filetype plugin indent on
 
 " Set leader key
 let mapleader=","
+let maplocalleader = ","
 
 " Respect modelines
 set modeline
@@ -91,18 +97,12 @@ set number
 
 " Autoindent on
 set autoindent
-{%@@ if profile == "arch-desktop" @@%}
 " Access colors present in 256 colorspace
 let base16colorspace=256
-{%@@ endif @@%}
 
 " Colorscheme
 syntax on
-{%@@ if profile == "think470" @@%}
-colorscheme wombat256diff
-{%@@ elif profile == "arch-desktop" @@%}
 colorscheme base16-chalk
-{%@@ endif @@%}
 set t_Co=256
 
 " Tab regulations
@@ -124,7 +124,7 @@ au BufRead *.h set tw=100
 cmap w!! w !sudo tee > /dev/null %
 
 " Guides
-inoremap <Space><Space> <Esc>/<++><Enter>"_4s
+" inoremap <Space><Space> <Esc>/<++><Enter>"_4s
 
 " Run neomake on every write
 autocmd! BufWritePost * Neomake
