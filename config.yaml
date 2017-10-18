@@ -6,6 +6,9 @@ dotfiles:
   d_colors:
     dst: ~/.vim/colors
     src: vim/colors
+  d_qutebrowser:
+    dst: ~/.config/qutebrowser
+    src: config/qutebrowser
   f_adjust_brightness.py:
     dst: ~/bin/adjust_brightness.py
     src: bin/adjust_brightness.py
@@ -33,9 +36,6 @@ dotfiles:
   f_init.el:
     dst: ~/.emacs.d/init.el
     src: emacs.d/init.el
-  f_keys.conf:
-    dst: ~/.config/qutebrowser/keys.conf
-    src: config/qutebrowser/keys.conf
   f_launch.sh:
     dst: ~/.config/polybar/launch.sh
     src: config/polybar/launch.sh
@@ -60,9 +60,6 @@ dotfiles:
   f_polybar_config:
     dst: ~/.config/polybar/config
     src: config/polybar/config
-  f_qutebrowser.conf:
-    dst: ~/.config/qutebrowser/qutebrowser.conf
-    src: config/qutebrowser/qutebrowser.conf
   f_ranger_rc.conf:
     dst: ~/.config/ranger/rc.conf
     src: config/ranger/rc.conf
@@ -133,8 +130,6 @@ profiles:
   - f_ranger_rc.conf
   - f_ranger_scope.sh
   - f_suspend@.service
-  - f_qutebrowser.conf
-  - f_keys.conf
   - f_makepkg.conf
   - f_pacman.conf
   - f_polybar_config
@@ -145,3 +140,5 @@ profiles:
   - f_mpd.conf
   - d_colors
   - f_ycm_extra_conf.py
+  - f_init.el
+  - d_qutebrowser
