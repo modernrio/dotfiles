@@ -94,9 +94,9 @@
       '(("t" "Todo" entry (file+headline "~/org/personal.org" "Aufgaben")
          "* TODO %?\n %i\n")))
 
-;; Include TODO entries and avoid duplicates when exporting to iCal
+;; Include TODO entries and sexp entries when exporting to iCal
 (setq org-icalendar-include-todo t
-      org-icalendar-store-UID t)
+      org-icalendar-include-sexps t)
 
 ;; Load org-babel languages
 (custom-set-variables
@@ -226,7 +226,12 @@
   :config
   (define-key global-map "\C-cl" 'org-store-link)
   (define-key global-map "\C-ca" 'org-agenda)
-  (setq org-log-done t))
+  (setq org-log-done t)
+
+  ;; Make latex previews bigger
+  (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.4))
+)
+
 
 (use-package nlinum-relative
   :config
