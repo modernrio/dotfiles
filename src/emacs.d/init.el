@@ -98,13 +98,16 @@
 (setq org-icalendar-include-todo t
       org-icalendar-include-sexps t)
 
+(setq org-mobile-directory "~/tud/")
+(setq org-mobile-inbox-for-pull "~/tud/index.org")
+
 ;; Load org-babel languages
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-babel-load-languages (quote ((C . t) (java . t))))
+ '(org-babel-load-languages (quote ((C . t) (java . t) (python . t))))
  '(org-confirm-babel-evaluate nil))
 
 ;; Enable entities and syntax highlight source code blocks.
