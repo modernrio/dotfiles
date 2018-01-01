@@ -29,6 +29,9 @@ fi
 # Add ccache and $HOME/bin to PATH
 export PATH="/usr/lib/ccache/bin/:$PATH:$HOME/bin"
 
+# Set your language environment
+export LANG=en_US.UTF-8
+
 #------------------------------------------------------------------------------#
 #                        Theme options (before loading)                        #
 #------------------------------------------------------------------------------#
@@ -133,9 +136,6 @@ HIST_STAMPS="dd.mm.yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(git)
-
-# Set your language environment
-export LANG=en_US.UTF-8
 
 # Set x11 keyboard map
 setxkbmap de,de
