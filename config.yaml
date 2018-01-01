@@ -18,6 +18,9 @@ dotfiles:
   f_bashrc:
     dst: ~/.bashrc
     src: bashrc
+  f_config.rasi:
+    dst: ~/.config/rofi/config.rasi
+    src: config/rofi/config.rasi
   f_gitconfig:
     dst: ~/.gitconfig
     src: gitconfig
@@ -142,3 +145,4 @@ profiles:
   - f_ycm_extra_conf.py
   - f_init.el
   - d_qutebrowser
+  - f_config.rasi
