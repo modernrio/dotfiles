@@ -171,7 +171,7 @@ command! -nargs=* RunSilent
       \ | execute ':redraw!'
 " Define functions for compiling (pp) and displaying (pv)
 function! CompileMD2PDF()
-	:execute 'silent !pandoc --from markdown_github -o /tmp/vim-pandoc-out.pdf %'
+	:execute 'silent !pandoc --from gfm -o /tmp/vim-pandoc-out.pdf %'
 endfunction
 
 function! ViewMD2PDF()
