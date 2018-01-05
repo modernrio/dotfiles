@@ -24,10 +24,8 @@ bindsym $mod+Shift+q kill
 # start rofi (a program launcher)
 bindsym $mod+d exec rofi -show run -lines 5 -eh 2 -width 50 -terminal termite
 
-{%@@ if profile == "think470" @@%}
 # start rofi-pass (password manager)
 bindsym $mod+c exec rofi-pass
-{%@@ endif @@%}
 
 # Disable titlebar and add small border
 {%@@ if profile == "think470" @@%}
