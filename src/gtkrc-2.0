@@ -1,6 +1,6 @@
 {%@@ if profile == "think470" @@%}
 gtk-icon-theme-name = "vimix-dark"
-gtk-theme-name = "VimixDark-Laptop-Ruby"
+gtk-theme-name = "Vimix-Dark-Laptop-Ruby"
 gtk-font-name = "DejaVu Sans 11"
 {%@@ elif profile == "arch-desktop" @@%}
 gtk-theme-name="Arc-Dark"
