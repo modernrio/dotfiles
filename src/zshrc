@@ -166,6 +166,18 @@ export PATH=~/.gem/ruby/2.4.0/bin:$PATH
 {%@@ endif @@%}
 
 #------------------------------------------------------------------------------#
+#                                 Tmux logging                                 #
+#------------------------------------------------------------------------------#
+# Enable logging if we are in a tmux pane (needs 'ansifilter' to be installed)
+if [ -n "$TMUX_PANE" ] && [ "$TMUX_PANE_AUTORUN" != "0" ]; then
+  tmux pipe-pane -o 'ansifilter >>~/tmux_output.#S:#I-#P'
+
+  # Prevent autocommand in subshells. We only want the top shell within a
+  # tmux pane to run these commands.
+  export TMUX_PANE_AUTORUN=0
+fi
+
+#------------------------------------------------------------------------------#
 #                             Enviroment variables                             #
 #------------------------------------------------------------------------------#
 # Change ls colors
